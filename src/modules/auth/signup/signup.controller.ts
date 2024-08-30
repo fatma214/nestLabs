@@ -9,14 +9,13 @@ export class SignupController {
      }
     @Post()
     register(@Body() body:signUpDTO){
-    
         return  this._signUpService.signUp(body)
     }
 
-    @Get()
-    getUsers(){
-        return this._signUpService.getAllUsers();
-    }
+    // @Get()
+    // getUsers(){
+    //     return this._signUpService.getAllUsers();
+    // }
     
        
 
