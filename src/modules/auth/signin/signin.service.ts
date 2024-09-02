@@ -16,7 +16,7 @@ private _JwtService:JwtService) {}
     let user = await this.userModel.findOne({ email: signInData.email });
 
     if (user && (await bcrypt.compare(signInData.password, user.password))) {
-        let token =this._JwtService.sign({name:user.name,email:user.email},{secret:"secretKey"})
+        let token =this._JwtService.sign({name:user.name,email:user.email,id:user._id},{secret:"secretKey"})
       return  {message:"welcome",token:token}
     } else {
       throw new HttpException('Email or password wrong', HttpStatus.BAD_REQUEST);
